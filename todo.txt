@@ -1,0 +1,10 @@
+-lista filmów
+	-lista po kategorii
+	-lista od X lat
+-wyświetlenie konkretnego filmu
+	?ocenienie
+	-kupno biletu
+		-wybór godziny
+		-wybór miejsca
+-internacjonalizacja
+	-do każdego requestu dodanie parametru "lang" - inaczej default
