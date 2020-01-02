@@ -39,4 +39,5 @@ public class MovieController {
 	public Movie findMovie(@PathVariable("movieId") int id) {
 		return movieService.findMovie(id);
 	}
+
 }

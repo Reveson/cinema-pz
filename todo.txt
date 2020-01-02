@@ -4,7 +4,10 @@
 -wyświetlenie konkretnego filmu
 	?ocenienie
 	-kupno biletu
+        GET godziny seansów
 		-wybór godziny
+            GET miejsc
 		-wybór miejsca
+            POST z kupnem
 -internacjonalizacja
 	-do każdego requestu dodanie parametru "lang" - inaczej default

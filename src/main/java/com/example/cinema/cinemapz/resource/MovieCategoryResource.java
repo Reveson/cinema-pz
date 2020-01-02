@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.cinema.cinemapz.model.MovieCategory;
 
-public interface MovieCategoryRepository extends JpaRepository<MovieCategory, Integer> {
+public interface MovieCategoryResource extends JpaRepository<MovieCategory, Integer> {
 
 }

@@ -8,21 +8,21 @@ import org.springframework.stereotype.Service;
 import com.example.cinema.cinemapz.dto.SimpleMovie;
 import com.example.cinema.cinemapz.model.Movie;
 import com.example.cinema.cinemapz.model.MovieCategory;
-import com.example.cinema.cinemapz.resource.MovieCategoryRepository;
-import com.example.cinema.cinemapz.resource.MovieRepository;
+import com.example.cinema.cinemapz.resource.MovieCategoryResource;
+import com.example.cinema.cinemapz.resource.MovieResource;
 
 @Service
 public class MovieServiceImpl implements MovieService {
 
 	@Autowired
-	private MovieRepository movieRepository;
+	private MovieResource movieResource;
 
 	@Autowired
-	private MovieCategoryRepository movieCategoryRepository;
+	private MovieCategoryResource movieCategoryRepository;
 
 	@Override
 	public List<SimpleMovie> getMovies() {
-		return movieRepository.findAllSimple();
+		return movieResource.findAllSimple();
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public Movie findMovie(int id) {
-		return movieRepository.getOne(id);
+		return movieResource.getOne(id);
 	}
 
 }
