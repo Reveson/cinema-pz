@@ -1,5 +1,5 @@
 -lista filmów
-	-lista po kategorii
+	+lista po kategorii
 	-lista od X lat
 -wyświetlenie konkretnego filmu
 	?ocenienie

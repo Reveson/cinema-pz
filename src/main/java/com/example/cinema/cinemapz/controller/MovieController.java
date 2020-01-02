@@ -34,6 +34,12 @@ public class MovieController {
 		return movieService.getMovieCategories();
 	}
 
+	@GetMapping("/categories/{categoryId:\\d+}")
+	@ResponseBody
+	public List<SimpleMovie> getMovies(@PathVariable("categoryId") int categoryId) {
+		return movieService.getMovies(categoryId);
+	}
+
 	@GetMapping("/{movieId:\\d+}")
 	@ResponseBody
 	public Movie findMovie(@PathVariable("movieId") int id) {

@@ -26,6 +26,11 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
+	public List<SimpleMovie> getMovies(int categoryId) {
+		return movieResource.findByCategorySimple(categoryId);
+	}
+
+	@Override
 	public List<MovieCategory> getMovieCategories() {
 		return movieCategoryRepository.findAll();
 	}

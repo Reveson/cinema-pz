@@ -10,6 +10,8 @@ public interface MovieService {
 
 	List<SimpleMovie> getMovies();
 
+	List<SimpleMovie> getMovies(int categoryId);
+
 	List<MovieCategory> getMovieCategories();
 
 	Movie findMovie(int id);
