@@ -4,9 +4,9 @@
 -wyświetlenie konkretnego filmu
 	?ocenienie
 	-kupno biletu
-        GET godziny seansów
+        +GET godziny seansów
 		-wybór godziny
-            GET miejsc
+            +GET miejsc
 		-wybór miejsca
             POST z kupnem
 -internacjonalizacja

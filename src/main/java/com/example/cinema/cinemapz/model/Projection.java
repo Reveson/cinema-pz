@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Projection {
@@ -15,15 +17,21 @@ public class Projection {
 	@Id
 	@GeneratedValue
 	private int id;
-	private Date movieStart;
+
+	@Column(name="movie_start")
+	private long movieStartTimestamp;
 	private int price;
 
-	public Date getMovieStart() {
-		return movieStart;
+	@ManyToOne
+	@JoinColumn(name="movie_event_id", referencedColumnName = "id")
+	private MovieEvent movieEvent;
+
+	public long getMovieStartTimestamp() {
+		return movieStartTimestamp;
 	}
 
-	public void setMovieStart(Date movieStart) {
-		this.movieStart = movieStart;
+	public void setMovieStartTimestamp(long movieStartTimestamp) {
+		this.movieStartTimestamp = movieStartTimestamp;
 	}
 
 	public int getPrice() {
@@ -42,5 +50,12 @@ public class Projection {
 		this.id = id;
 	}
 
+	public MovieEvent getMovieEvent() {
+		return movieEvent;
+	}
+
+	public void setMovieEvent(MovieEvent movieEvent) {
+		this.movieEvent = movieEvent;
+	}
 
 }

@@ -1,6 +1,9 @@
 package com.example.cinema.cinemapz.controller;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,5 +48,14 @@ public class MovieController {
 	public Movie findMovie(@PathVariable("movieId") int id) {
 		return movieService.findMovie(id);
 	}
+
+	@GetMapping("/{movieId:\\d+}/projections")
+	@ResponseBody
+	public List<Instant> getMovieProjectionTimes(@PathVariable("movieId") int movieId) {
+		List<Long> projectionsAsTimestamp = movieService.getMovieProjectionDates(movieId);
+		return projectionsAsTimestamp.stream().map(Instant::ofEpochMilli).collect(Collectors.toList()); //TODO leave as long
+	}
+
+
 
 }

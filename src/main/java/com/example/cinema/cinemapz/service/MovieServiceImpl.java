@@ -1,5 +1,6 @@
 package com.example.cinema.cinemapz.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,8 @@ import com.example.cinema.cinemapz.resource.MovieCategoryResource;
 import com.example.cinema.cinemapz.resource.MovieResource;
 
 @Service
-public class MovieServiceImpl implements MovieService {
+public class
+MovieServiceImpl implements MovieService {
 
 	@Autowired
 	private MovieResource movieResource;
@@ -39,5 +41,12 @@ public class MovieServiceImpl implements MovieService {
 	public Movie findMovie(int id) {
 		return movieResource.getOne(id);
 	}
+
+	@Override
+	public List<Long> getMovieProjectionDates(int movieId) {
+		return movieResource.getProjectionDates(movieId);
+	}
+
+
 
 }
