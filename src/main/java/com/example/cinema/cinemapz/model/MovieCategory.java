@@ -13,7 +13,7 @@ public class MovieCategory {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private int id;
 
   @Column(name="category_name")
   private String name;
@@ -21,11 +21,11 @@ public class MovieCategory {
 
 
 
-  public long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

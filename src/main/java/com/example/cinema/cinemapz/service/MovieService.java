@@ -1,5 +1,7 @@
 package com.example.cinema.cinemapz.service;
 
+import com.example.cinema.cinemapz.dto.MovieCategoryDto;
+import com.example.cinema.cinemapz.dto.MovieDto;
 import java.util.Date;
 import java.util.List;
 
@@ -13,9 +15,9 @@ public interface MovieService {
 
 	List<SimpleMovie> getMovies(int categoryId);
 
-	List<MovieCategory> getMovieCategories();
+	List<MovieCategoryDto> getMovieCategories();
 
-	Movie findMovie(int id);
+	MovieDto findMovie(int id);
 
 	List<Long> getMovieProjectionDates(int movieId);
 

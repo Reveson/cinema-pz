@@ -1,5 +1,7 @@
 package com.example.cinema.cinemapz.controller;
 
+import com.example.cinema.cinemapz.dto.MovieCategoryDto;
+import com.example.cinema.cinemapz.dto.MovieDto;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +35,7 @@ public class MovieController {
 
 	@GetMapping("/categories")
 	@ResponseBody
-	public List<MovieCategory> getCategories() {
+	public List<MovieCategoryDto> getCategories() {
 		return movieService.getMovieCategories();
 	}
 
@@ -45,7 +47,7 @@ public class MovieController {
 
 	@GetMapping("/{movieId:\\d+}")
 	@ResponseBody
-	public Movie findMovie(@PathVariable("movieId") int id) {
+	public MovieDto findMovie(@PathVariable("movieId") int id) {
 		return movieService.findMovie(id);
 	}
 
