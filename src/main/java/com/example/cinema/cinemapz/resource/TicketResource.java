@@ -11,4 +11,6 @@ public interface TicketResource extends JpaRepository<Ticket, Long> {
 
 	@Query("select t.seat.id from Ticket t where t.projection.id = ?1")
 	List<Integer> findSeatIdsByProjectionId(int projectionId);
+
+
 }

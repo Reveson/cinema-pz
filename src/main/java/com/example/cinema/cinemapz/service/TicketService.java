@@ -9,4 +9,6 @@ public interface TicketService {
 
 	List<SeatDto> getSeats(int projectionId);
 
+	void bookTickets(int projectionId, List<Integer> seatsIds, String clientName);
+
 }

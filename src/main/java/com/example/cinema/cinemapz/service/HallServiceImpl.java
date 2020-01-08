@@ -6,6 +6,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.cinema.cinemapz.ErrorCode;
+import com.example.cinema.cinemapz.NoEntityFoundException;
 import com.example.cinema.cinemapz.model.Seat;
 import com.example.cinema.cinemapz.resource.SeatResource;
 
@@ -17,7 +19,10 @@ public class HallServiceImpl implements HallService {
 
 	@Override
 	public List<Seat> getSeats(int projectionId) {
-		return seatResource.findAllByProjectionId(projectionId);
+		List<Seat> seats = seatResource.findAllByProjectionId(projectionId);
+		if(seats.isEmpty())
+			throw new NoEntityFoundException(ErrorCode.PROJECTION_NOT_EXISTS);
+		return seats;
 	}
 
 	@Override

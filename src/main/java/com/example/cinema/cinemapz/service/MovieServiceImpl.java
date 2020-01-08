@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.cinema.cinemapz.ErrorCode;
+import com.example.cinema.cinemapz.NoEntityFoundException;
 import com.example.cinema.cinemapz.dto.SimpleMovie;
 import com.example.cinema.cinemapz.model.Movie;
 import com.example.cinema.cinemapz.model.MovieCategory;
@@ -39,7 +41,7 @@ MovieServiceImpl implements MovieService {
 
 	@Override
 	public Movie findMovie(int id) {
-		return movieResource.getOne(id);
+		return movieResource.findById(id).orElseThrow(() -> new NoEntityFoundException(ErrorCode.MOVIE_NOT_EXISTS));
 	}
 
 	@Override

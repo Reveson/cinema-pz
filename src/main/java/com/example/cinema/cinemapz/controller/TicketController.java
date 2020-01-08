@@ -35,10 +35,10 @@ public class TicketController {
 
 	@PostMapping("/projection/{projectionId:\\d+}/book")
 	@ResponseBody
-	public ResponseEntity<String> bookTickets(@PathVariable("projectionId") int projectionId, @RequestParam("seats") List<Integer> seats) {
-
+	public ResponseEntity<String> bookTickets(@PathVariable("projectionId") int projectionId, @RequestParam("seats") List<Integer> seats,
+			@RequestParam("clientName") String clientName) {
+		ticketService.bookTickets(projectionId, seats, clientName);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
 
 }
