@@ -1,5 +1,7 @@
 package com.example.cinema.cinemapz;
 
+import com.example.cinema.cinemapz.error.ErrorCode;
+
 public class RestApiException extends RuntimeException {
 
 	private ErrorCode errorCode;

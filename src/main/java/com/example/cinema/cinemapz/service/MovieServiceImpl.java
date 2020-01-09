@@ -3,14 +3,14 @@ package com.example.cinema.cinemapz.service;
 import com.example.cinema.cinemapz.dto.MovieCategoryDto;
 import com.example.cinema.cinemapz.dto.MovieDto;
 import com.example.cinema.cinemapz.serializer.MovieSerializer;
-import java.util.Date;
+
 import java.util.List;
 
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.cinema.cinemapz.ErrorCode;
+import com.example.cinema.cinemapz.error.ErrorCode;
 import com.example.cinema.cinemapz.NoEntityFoundException;
 import com.example.cinema.cinemapz.dto.SimpleMovie;
 import com.example.cinema.cinemapz.model.Movie;

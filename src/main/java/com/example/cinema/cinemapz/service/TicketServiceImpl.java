@@ -8,11 +8,10 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.cinema.cinemapz.ErrorCode;
+import com.example.cinema.cinemapz.error.ErrorCode;
 import com.example.cinema.cinemapz.IllegalRequestException;
 import com.example.cinema.cinemapz.dto.SeatDto;
 import com.example.cinema.cinemapz.model.Projection;
