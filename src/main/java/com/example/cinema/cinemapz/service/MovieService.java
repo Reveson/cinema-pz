@@ -2,12 +2,11 @@ package com.example.cinema.cinemapz.service;
 
 import com.example.cinema.cinemapz.dto.MovieCategoryDto;
 import com.example.cinema.cinemapz.dto.MovieDto;
-import java.util.Date;
+
 import java.util.List;
 
+import com.example.cinema.cinemapz.dto.ProjectionIdWithEpoch;
 import com.example.cinema.cinemapz.dto.SimpleMovie;
-import com.example.cinema.cinemapz.model.Movie;
-import com.example.cinema.cinemapz.model.MovieCategory;
 
 public interface MovieService {
 
@@ -19,6 +18,6 @@ public interface MovieService {
 
 	MovieDto findMovie(int id);
 
-	List<Long> getMovieProjectionDates(int movieId);
+	List<ProjectionIdWithEpoch> getMovieProjectionDates(int movieId);
 
 }

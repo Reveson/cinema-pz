@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.cinema.cinemapz.dto.ProjectionIdWithEpoch;
 import com.example.cinema.cinemapz.dto.SimpleMovie;
 import com.example.cinema.cinemapz.model.Movie;
 import com.example.cinema.cinemapz.model.MovieCategory;
@@ -53,9 +54,8 @@ public class MovieController {
 
 	@GetMapping("/{movieId:\\d+}/projections")
 	@ResponseBody
-	public List<Instant> getMovieProjectionTimes(@PathVariable("movieId") int movieId) {
-		List<Long> projectionsAsTimestamp = movieService.getMovieProjectionDates(movieId);
-		return projectionsAsTimestamp.stream().map(Instant::ofEpochMilli).collect(Collectors.toList()); //TODO leave as long
+	public List<ProjectionIdWithEpoch> getMovieProjectionTimes(@PathVariable("movieId") int movieId) {
+		return movieService.getMovieProjectionDates(movieId);
 	}
 
 

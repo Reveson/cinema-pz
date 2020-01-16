@@ -2,6 +2,7 @@ package com.example.cinema.cinemapz.service;
 
 import com.example.cinema.cinemapz.dto.MovieCategoryDto;
 import com.example.cinema.cinemapz.dto.MovieDto;
+import com.example.cinema.cinemapz.dto.ProjectionIdWithEpoch;
 import com.example.cinema.cinemapz.serializer.MovieSerializer;
 
 import java.util.List;
@@ -53,7 +54,7 @@ MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Long> getMovieProjectionDates(int movieId) {
+    public List<ProjectionIdWithEpoch> getMovieProjectionDates(int movieId) {
         return movieResource.getProjectionDates(movieId);
     }
 
