@@ -41,4 +41,16 @@ public class TicketController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	@GetMapping("/projection/{projectionId:\\d+}/seats")
+	@ResponseBody
+	public int[][] getSeatsPlacement(@PathVariable("projectionId") int projectionId) {
+		//TODO from database/file
+		//seat placement in hall. "0" means there's no seat there. Any other number means seat Id.
+		return new int[][] {
+				{0 ,11,12,13,0 },
+				{14,15,16,32,33},
+				{17,18,19,34,35}
+		};
+	}
+
 }
