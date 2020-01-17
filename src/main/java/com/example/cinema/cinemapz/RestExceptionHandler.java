@@ -171,7 +171,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 
 	private ResponseEntity<Object> buildResponseEntity(RestApiErrorAttributes apiError) {
-		return new ResponseEntity<>(apiError, apiError.getStatus());
+		return new ResponseEntity<>(apiError, HttpStatus.valueOf(apiError.getStatus()));
 	}
 
 }
