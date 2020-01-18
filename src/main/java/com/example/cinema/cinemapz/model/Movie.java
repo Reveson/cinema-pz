@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Movie {
@@ -16,13 +17,14 @@ public class Movie {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @Column(name="movie_name")
-  private String name;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name="category_id", referencedColumnName = "id")
   private MovieCategory movieCategory;
 
+  @Transient
+  private String name;
+  @Transient
   private String description;
   private String age;
   private String duration;

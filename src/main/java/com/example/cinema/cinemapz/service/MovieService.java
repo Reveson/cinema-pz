@@ -10,13 +10,13 @@ import com.example.cinema.cinemapz.dto.SimpleMovie;
 
 public interface MovieService {
 
-	List<SimpleMovie> getMovies();
+	List<SimpleMovie> getMovies(String lang);
 
-	List<SimpleMovie> getMovies(int categoryId);
+	List<SimpleMovie> getMovies(int categoryId, String lang);
 
-	List<MovieCategoryDto> getMovieCategories();
+	List<MovieCategoryDto> getMovieCategories(String lang);
 
-	MovieDto findMovie(int id);
+	MovieDto findMovie(int id, String lang);
 
 	List<ProjectionIdWithEpoch> getMovieProjectionDates(int movieId);
 

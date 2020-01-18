@@ -1,5 +1,7 @@
 package com.example.cinema.cinemapz.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,7 @@ public class TicketController {
 	@Autowired
 	TicketService ticketService;
 
-	@GetMapping("/projection/{projectionId:\\d+}")
+	@GetMapping("/projection/{projectionId:\\d+}/seats")
 	@ResponseBody
 	public List<SeatDto> getSeats(@PathVariable("projectionId") int projectionId) {
 		return ticketService.getSeats(projectionId);
@@ -41,16 +43,16 @@ public class TicketController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@GetMapping("/projection/{projectionId:\\d+}/seats")
+	@GetMapping("/projection/{projectionId:\\d+}/seats/placement")
 	@ResponseBody
-	public int[][] getSeatsPlacement(@PathVariable("projectionId") int projectionId) {
+	public List<Integer[]> getSeatsPlacement(@PathVariable("projectionId") int projectionId) {
 		//TODO from database/file
 		//seat placement in hall. "0" means there's no seat there. Any other number means seat Id.
-		return new int[][] {
-				{0 ,11,12,13,0 },
-				{14,15,16,32,33},
-				{17,18,19,34,35}
-		};
+		return Arrays.asList(
+				new Integer[]{0, 11, 12, 13, 0},
+				new Integer[]{14, 15, 16, 32, 33},
+				new Integer[]{17, 18, 19, 34, 35}
+		);
 	}
 
 }
