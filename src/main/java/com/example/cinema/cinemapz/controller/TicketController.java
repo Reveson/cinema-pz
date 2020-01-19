@@ -1,5 +1,6 @@
 package com.example.cinema.cinemapz.controller;
 
+import com.example.cinema.cinemapz.service.HallService;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,9 @@ public class TicketController {
 	@Autowired
 	TicketService ticketService;
 
+	@Autowired
+	HallService hallService;
+
 	@GetMapping("/projection/{projectionId:\\d+}/seats")
 	@ResponseBody
 	public List<SeatDto> getSeats(@PathVariable("projectionId") int projectionId) {
@@ -46,13 +50,8 @@ public class TicketController {
 	@GetMapping("/projection/{projectionId:\\d+}/seats/placement")
 	@ResponseBody
 	public List<Integer[]> getSeatsPlacement(@PathVariable("projectionId") int projectionId) {
-		//TODO from database/file
 		//seat placement in hall. "0" means there's no seat there. Any other number means seat Id.
-		return Arrays.asList(
-				new Integer[]{0, 11, 12, 13, 0},
-				new Integer[]{14, 15, 16, 32, 33},
-				new Integer[]{17, 18, 19, 34, 35}
-		);
+		return hallService.getSeatPlacement(projectionId);
 	}
 
 }

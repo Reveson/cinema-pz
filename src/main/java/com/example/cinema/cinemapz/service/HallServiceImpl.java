@@ -1,8 +1,10 @@
 package com.example.cinema.cinemapz.service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,18 @@ public class HallServiceImpl implements HallService {
 				return false;
 		}
 		return true;
+	}
+
+	@Override
+	public List<Integer[]> getSeatPlacement(int projectionId) {
+		String seatMap = seatResource.getSeatPlacementMap(projectionId);
+		String[] rows = seatMap.replaceAll("\r", "").split("\n");
+		return Arrays.stream(rows)
+				.map(row -> row.split(" "))
+				.map(stringArray -> Arrays.stream(stringArray)
+						.map(Integer::valueOf)
+						.toArray(Integer[]::new))
+				.collect(Collectors.toList());
 	}
 
 }

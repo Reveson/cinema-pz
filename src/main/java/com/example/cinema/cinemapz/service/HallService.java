@@ -10,4 +10,5 @@ public interface HallService {
 
 	boolean seatsExistsInHall(int projectionId, List<Integer> seatsIdsToCheck);
 
+	List<Integer[]> getSeatPlacement(int projectionId);
 }

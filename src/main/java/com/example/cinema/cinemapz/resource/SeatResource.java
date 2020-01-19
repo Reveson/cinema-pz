@@ -20,4 +20,10 @@ public interface SeatResource extends JpaRepository<Seat, Integer> {
 			+ "join seat s ON e.hall_id = s.hall_id "
 			+ "where p.id = ?1", nativeQuery = true)
 	Set<Integer> findIdsByProjectionId(int projectionId);
+
+	@Query(value = "select seats_placement from hall_arrangement h "
+			+ "join movie_event e on h.hall_id = e.hall_id "
+			+ "join projection p on p.movie_event_id = e.id "
+			+ "where p.id = ?", nativeQuery = true)
+	String getSeatPlacementMap(int projectionId);
 }
